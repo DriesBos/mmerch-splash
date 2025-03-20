@@ -63,12 +63,14 @@ body
   &-Column
     display: flex
     flex-direction: column
-    gap: .25rem
+    gap: .165rem
     h1
       font-weight: 700
     a
-      padding-bottom: .5rem
+      padding-bottom: .33rem
       border-bottom: 2.5px solid transparent
+      @media (max-width: 770px)
+        padding-bottom: 0
     &_Content
       &:hover
         @media (pointer: fine)
@@ -84,11 +86,11 @@ body
   display: flex
   flex: 1
   flex-direction: column
-  gap: .25rem
+  gap: .165rem
   border-bottom: 2.5px solid white
   width: 350px
   max-width: 350px
-  padding-bottom: .5rem
+  padding-bottom: .33rem
   padding-right: 2rem
   @media (max-width: 768px)
     width: 100%

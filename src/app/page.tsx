@@ -18,7 +18,7 @@ export default function Home() {
           </div>
           <div className="footer-Column_Content">
             <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+              href="https://www.instagram.com/mmerch/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <div className="footer-Column_Content">
             <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+              href="https://twitter.com/mmerch/"
               target="_blank"
               rel="noopener noreferrer"
             >

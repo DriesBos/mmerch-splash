@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="footer-Column">
         <Subscribe />
       </div>
-      <div className="footer-Column">
+      <div className="footer-Column desktop">
         <a
           href="https://www.instagram.com/mmerch/"
           target="_blank"
@@ -15,7 +15,23 @@ export default function Footer() {
           IG
         </a>
       </div>
-      <div className="footer-Column">
+      <div className="footer-Column desktop">
+        <a
+          href="https://twitter.com/mmerch/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          X
+        </a>
+      </div>
+      <div className="footer-Column footer-Column_Social mobile">
+        <a
+          href="https://www.instagram.com/mmerch/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          IG
+        </a>
         <a
           href="https://twitter.com/mmerch/"
           target="_blank"

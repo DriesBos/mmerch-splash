@@ -31,14 +31,25 @@ body
     line-height: 1.25
     color: white
 
+@keyframes fadeInOut 
+  0%
+    opacity: 0
+  100% 
+    opacity: 1
+
 .logo
   padding-top: 5vh
   padding-left: 2.5vw
   padding-right: 2.5vw
   width: 100%
   max-width: 100vw
+  opacity: 0
+  will-change: opacity
   @media (max-width: 770px)
     padding-top: 4vh
+  animation: fadeInOut 1s
+  animation-delay: .5s
+  animation-fill-mode: forwards
   img
     width: 100%
     height: auto

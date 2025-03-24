@@ -17,6 +17,15 @@ export default function Footer() {
       </div>
       <div className="footer-Column desktop">
         <a
+          href="https://discord.gg/mmerch"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          DC
+        </a>
+      </div>
+      <div className="footer-Column desktop">
+        <a
           href="https://twitter.com/mmerch/"
           target="_blank"
           rel="noopener noreferrer"
@@ -24,6 +33,7 @@ export default function Footer() {
           X
         </a>
       </div>
+
       <div className="footer-Column footer-Column_Social mobile">
         <a
           href="https://www.instagram.com/mmerch/"
@@ -34,6 +44,13 @@ export default function Footer() {
         </a>
         <a
           href="https://twitter.com/mmerch/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          DC
+        </a>
+        <a
+          href="https://discord.gg/mmerch"
           target="_blank"
           rel="noopener noreferrer"
         >

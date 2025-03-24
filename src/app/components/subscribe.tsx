@@ -15,11 +15,10 @@ export default function Subscribe() {
     <div className="subscribe">
       {!isSuccess && (
         <>
-          <label htmlFor="email">subscribe to stay in the loop</label>
           <input
             type="email"
             id="email"
-            placeholder="your email"
+            placeholder="subscribe to stay in the loop"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -30,7 +29,6 @@ export default function Subscribe() {
       )}
       {isSuccess && (
         <>
-          <label>&nbsp;</label>
           <p>Success. Thank you!</p>
         </>
       )}

@@ -21,7 +21,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          DC
+          DISCORD
         </a>
       </div>
       <div className="footer-Column desktop">
@@ -47,7 +47,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          DC
+          DISCORD
         </a>
         <a
           href="https://discord.gg/mmerch"

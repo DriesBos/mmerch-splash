@@ -29,7 +29,7 @@ export default function Subscribe() {
         <input
           type="email"
           id="email"
-          placeholder="Stay in the loop"
+          placeholder="stay in the loop"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />

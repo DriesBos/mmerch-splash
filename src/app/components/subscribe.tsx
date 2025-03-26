@@ -1,13 +1,21 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState, useRef } from 'react';
 
 export default function Subscribe() {
-  const [email, setEmail] = useState('');
+  const [inputValue, setInputValue] = useState('');
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
-  const [buttonActive, setButtonActive] = useState<boolean>(false);
+  const [isError, setIsError] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const sendEmail = async () => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+    setIsError(false);
+    setIsSuccess(false);
+    inputRef.current?.setCustomValidity(''); // clear any custom validation messages
+  };
+
+  const handleSubmit = async () => {
     try {
       const response = await fetch(
         'https://mmerch.api-us1.com/admin/api.php?api_action=contact_sync',
@@ -21,7 +29,7 @@ export default function Subscribe() {
             api_output: 'serialize',
           },
           body: JSON.stringify({
-            email: email,
+            email: inputValue,
             field: [345, 0],
             account_name: 'mmerch.activehosted.com',
           }),
@@ -29,52 +37,56 @@ export default function Subscribe() {
       );
 
       if (response.ok) {
-        console.log(`Email sent to: ${email}`);
-        setEmail('');
+        console.log(`Email sent to: ${inputValue}`);
+        setInputValue('');
         setIsSuccess(true);
-        setButtonActive(false);
       } else {
-        console.error('Failed to send email');
-        setEmail('');
+        setInputValue('');
         setIsSuccess(false);
-        setButtonActive(true);
+        inputRef.current?.setCustomValidity(response.statusText);
+        inputRef.current?.reportValidity();
+        console.error('Error response:', response.statusText);
       }
     } catch (error) {
-      setEmail('');
+      setInputValue('');
       setIsSuccess(false);
-      setButtonActive(true);
+      setIsError(true);
       console.error('Error sending email:', error);
+      inputRef.current?.setCustomValidity(
+        'An error occurred. Please try again.'
+      );
+      inputRef.current?.reportValidity();
     }
   };
 
-  useEffect(() => {
-    if (email.length > 0) {
-      setButtonActive(true);
-      console.log(`Email is ready: ${email}`);
-    } else {
-      setButtonActive(false);
-      console.log(`Email is not ready: ${email}`);
-    }
-  }, [email]);
-
   return (
     <div className="subscribe">
-      {!isSuccess && (
+      <form
+        method="post"
+        target="_blank"
+        action="https://mmerch.activehosted.com/proc.php?jsonp=true"
+        onSubmit={handleSubmit}
+      >
         <input
           type="email"
-          id="email"
-          placeholder="stay in the loop"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          id="emailInput"
+          type={inputRef}
+          name="email"
+          min="4"
+          pattern="[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}"
+          value={inputValue}
+          placeholder={isSuccess ? 'Thank you! 🎉' : 'stay in the loop'}
+          onChange={handleInputChange}
+          required
         />
-      )}
-      {isSuccess && <p>Success. Thank you!</p>}
-      <button
-        className={`${buttonActive === true ? 'active' : null}`}
-        onClick={sendEmail}
-      >
-        <img src="/return.svg" alt="submit" />
-      </button>
+        <button
+          aria-label="Subscribe to our newsletter"
+          disabled={!inputValue || isSuccess}
+          type="submit"
+        >
+          <img src="/return.svg" alt="submit" />
+        </button>
+      </form>
     </div>
   );
 }

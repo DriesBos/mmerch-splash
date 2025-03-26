@@ -1,0 +1,11 @@
+{
+  "name": "mmERCH",
+  "short_name": "mmERCH",
+  "description": "Fashion as hardware. Programmed for culture.",
+  "start_url": "/",
+  "permissions": [
+    "http://myapp.appspot.com/*",
+    "http://localhost/*",
+    "http://localhost:3000/"
+  ]
+}

@@ -3,17 +3,19 @@ import Subscribe from './subscribe';
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-Column">
-        <Subscribe />
-      </div>
-      <div className="footer-Column desktop">
-        <a
-          href="https://www.instagram.com/mmerch/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          IG
-        </a>
+      <div className="footer-ColumnsContainer">
+        <div className="footer-Column">
+          <Subscribe />
+        </div>
+        <div className="footer-Column desktop">
+          <a
+            href="https://www.instagram.com/mmerch/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            IG
+          </a>
+        </div>
       </div>
       <div className="footer-Column desktop">
         <a
@@ -21,7 +23,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          DISCORD
+          Discord
         </a>
       </div>
       <div className="footer-Column desktop">
@@ -47,7 +49,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          DISCORD
+          Discord
         </a>
         <a
           href="https://discord.gg/mmerch"

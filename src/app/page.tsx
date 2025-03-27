@@ -1,4 +1,5 @@
 import Footer from './components/Footer';
+import { EmailForm } from './components/EmailForm';
 
 export default function Home() {
   return (
@@ -6,6 +7,7 @@ export default function Home() {
       <main>
         <div className="logo">
           <img src="/logo.svg" alt="mmERCH logo" />
+          <EmailForm />
         </div>
       </main>
       <Footer />
